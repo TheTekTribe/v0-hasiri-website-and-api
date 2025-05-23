@@ -1,30 +1,90 @@
-# HASIRI
+# Hasiri API
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+This repository contains the backend API for the Hasiri website, built with Next.js API routes and Supabase.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/thetektribe-gmailcoms-projects/v0-hasiri)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/mkWHz91Ge8Q)
+## Features
 
-## Overview
+- RESTful API endpoints for products, categories, homepage content, users, and orders
+- Authentication and authorization with JWT tokens
+- Database schema and stored procedures
+- Comprehensive API documentation
+- Middleware for authentication and error handling
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## API Endpoints
 
-## Deployment
+The API provides the following endpoints:
 
-Your project is live at:
+- **Authentication**
+  - Register: `POST /api/auth/register`
+  - Login: `POST /api/auth/login`
+  - Logout: `POST /api/auth/logout`
 
-**[https://vercel.com/thetektribe-gmailcoms-projects/v0-hasiri](https://vercel.com/thetektribe-gmailcoms-projects/v0-hasiri)**
+- **Products**
+  - List products: `GET /api/products`
+  - Get product: `GET /api/products/{slug}`
+  - Create product: `POST /api/products`
+  - Update product: `PUT /api/products/{slug}`
+  - Delete product: `DELETE /api/products/{slug}`
 
-## Build your app
+- **Categories**
+  - List categories: `GET /api/categories`
+  - Get category: `GET /api/categories/{slug}`
+  - Create category: `POST /api/categories`
+  - Update category: `PUT /api/categories/{slug}`
+  - Delete category: `DELETE /api/categories/{slug}`
 
-Continue building your app on:
+- **Homepage Content**
+  - Get homepage content: `GET /api/homepage`
+  - Get homepage sections: `GET /api/homepage/sections`
+  - Create homepage section: `POST /api/homepage/sections`
+  - Reorder homepage sections: `PATCH /api/homepage/sections`
+  - Get carousel images: `GET /api/homepage/carousel`
+  - Create carousel image: `POST /api/homepage/carousel`
 
-**[https://v0.dev/chat/projects/mkWHz91Ge8Q](https://v0.dev/chat/projects/mkWHz91Ge8Q)**
+- **User Profile**
+  - Get current user profile: `GET /api/users/me`
+  - Update current user profile: `PUT /api/users/me`
 
-## How It Works
+- **Orders**
+  - List orders: `GET /api/orders`
+  - Get order: `GET /api/orders/{id}`
+  - Create order: `POST /api/orders`
+  - Update order status: `PUT /api/orders/{id}`
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- Supabase account
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
+3. Set up environment variables:
+   \`\`\`
+   SUPABASE_URL=your-supabase-url
+   SUPABASE_ANON_KEY=your-supabase-anon-key
+   SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+   \`\`\`
+4. Run the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+### Database Setup
+
+1. Create the necessary tables in your Supabase project using the SQL in `db/schema.sql`
+2. Create the stored procedure for orders using the SQL in `db/create_order_procedure.sql`
+
+## Documentation
+
+For detailed API documentation, see [API_DOCUMENTATION.md](./API_DOCUMENTATION.md).
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

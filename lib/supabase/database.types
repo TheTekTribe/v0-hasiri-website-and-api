@@ -1,0 +1,38 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
+
+export interface Database {
+  public: {
+    Tables: {
+      products: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+      categories: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+      homepage_sections: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+      carousel_images: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+      orders: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+      order_items: {
+        Row: any
+        Insert: any
+        Update: any
+      }
+    }
+  }
+}
